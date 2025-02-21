@@ -47,7 +47,7 @@ async function createActivateRestakeRequest(pubKey) {
   const url = `${API_BASE_URL}eth/staking/eigenlayer/tx/verify-withdrawal-credentials`;
   const data = {
     eigenPodOwnerAddress: STAKER_ADDRESS,
-    pubKey: pubKey,
+    pubkey: pubKey,
   };
   try {
     const response = await axios.post(url, data, {
@@ -58,7 +58,7 @@ async function createActivateRestakeRequest(pubKey) {
   } catch (error) {
     console.error(
       "Error initiating restake request:",
-      error.response?.data || error.message
+      error.response?.data || error.message,
     );
     throw error;
   }
